@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_en.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_en.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\arrow.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\arrow.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\add.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\add.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\arrow_up.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\arrow_up.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\card_avatar_bar.9.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\card_avatar_bar.9.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\card_whole.9.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\card_whole.9.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markc.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markc.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\button_bg_pressed.9.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\button_bg_pressed.9.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_gcoding.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_gcoding.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markf.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markf.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_marki.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_marki.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\button_bg_normal.9.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\button_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_marka.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_marka.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markd.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markd.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_geo.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_geo.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_st.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_st.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markg.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markg.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markh.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markh.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markb.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markb.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_markj.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_markj.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_marke.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-hdpi\\icon_marke.png"
+    }
+]

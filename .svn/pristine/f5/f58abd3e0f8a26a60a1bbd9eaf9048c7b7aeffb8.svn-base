@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon_project_detail.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xxhdpi\\icon_project_detail.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\app_icon.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xxhdpi\\app_icon.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\background_login.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xxhdpi\\background_login.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon_pop.9.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xxhdpi\\icon_pop.9.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon_loading_circle.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xxhdpi\\icon_loading_circle.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\icon_loading.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xxhdpi\\icon_loading.png"
+    }
+]

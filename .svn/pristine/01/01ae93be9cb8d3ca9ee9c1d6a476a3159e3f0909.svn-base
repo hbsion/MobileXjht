@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/xml_modify_avatar_dialog_bg"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/select_baidu_map"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@drawable/xml_modify_avatar_dialog_btn_bg"
+        android:text="@string/map_baidu"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_max" />
+
+    <Button
+        android:id="@+id/select_gaode_map"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@drawable/xml_modify_avatar_dialog_btn_bg"
+        android:text="@string/map_gaode"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_max" />
+
+    <Button
+        android:id="@+id/select_guge_map"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@drawable/xml_modify_avatar_dialog_btn_bg"
+        android:text="@string/map_guge"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_max" />
+
+    <Button
+        android:id="@+id/select_map_cancle"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:background="@drawable/xml_modify_avatar_dialog_btn_bg"
+        android:text="@string/select_sex_cancle"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,123 @@
+package com.jky.xjht.fragment;
+
+import com.jky.xjht.R;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.jky.xjht.activity.AboutUsActivity;
+import com.jky.xjht.activity.LoginActivity;
+import com.jky.xjht.dialog.SimpleDialog;
+import com.jky.xjht.dialog.SimpleDialog.OnMySimpleDialogListener;
+import com.jky.xjht.img.CircularImageView;
+import com.jky.xjht.net.ApiConstant;
+import com.jky.xjht.utils.CheckAppUpdate;
+import com.jky.xjht.utils.Constants;
+import com.jky.xjht.utils.Preferences;
+import com.jky.xjht.widget.PullScrollView;
+/**
+ * <p>个人中心Fragment</p>
+ * @author zhangliwei
+ * @version V1.0.0
+ */
+public class PersonalFragment extends Fragment implements PullScrollView.OnTurnListener, OnClickListener{
+	
+	 private PullScrollView mScrollView;
+	 private ImageView mHeadImg;
+	 private View mUserDutyView, mUserUnitView,mLogoutRl,mImageHeadView ;
+	 private TextView mLogutTv, mNameTv,mUserUnitTv ,mUserDutyTv;
+	 private TextView mUserNameTv;
+	 private String mUrl ="http://xmxt.jiankeyan.com:11083/api/SYS/Update";
+	 private CircularImageView mUserPhotoView;
+	 
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_personal, container, false);
+		initView(view);
+		return view;
+	}
+	
+	private void initView(View view) {
+			mLogoutRl = view.findViewById(R.id.rl_logout);
+			mLogutTv = (TextView) view.findViewById(R.id.tv_logout);
+			mScrollView = (PullScrollView) view.findViewById(R.id.scroll_view);
+	        mHeadImg = (ImageView)  view.findViewById(R.id.background_img);
+	        mUserNameTv = (TextView) view.findViewById(R.id.user_name);
+	        mUserPhotoView = (CircularImageView) view.findViewById(R.id.user_avatar);
+	        refreshView();
+	        mScrollView.setHeader(mHeadImg);
+	        mScrollView.setOnTurnListener(this);
+	        view.findViewById(R.id.rl_logout).setOnClickListener(this);
+	        view.findViewById(R.id.rl_update).setOnClickListener(this);
+	        view.findViewById(R.id.rl_about_us).setOnClickListener(this);
+	}
+
+	private void refreshView() {
+		 String name = Preferences.getInstance(getActivity()).getString(Constants.KEY_USER_NAME); 
+	        if(TextUtils.isEmpty(name)){
+	        	mLogoutRl.setVisibility(View.GONE);
+	        	mUserNameTv.setText("未登录");
+	        	mUserPhotoView.setOnClickListener(this);
+	        }else {
+	        	mLogoutRl.setVisibility(View.VISIBLE);
+	        	mUserNameTv.setText(name);
+	        	mUserPhotoView.setOnClickListener(null);
+	        }
+	}
+
+	@Override
+	public void onTurn() {
+		
+	}
+
+	@Override
+	public void onClick(View v) {
+		
+		switch (v.getId()) {
+		case R.id.user_avatar:
+			startActivity(new Intent(getActivity(), LoginActivity.class));
+			break;
+		case R.id.rl_update:
+			 new Thread(new CheckAppUpdate(getActivity(), ApiConstant.UPDATE_APP_URL, "3000", true, 1)).start();
+				break;
+		case R.id.rl_about_us:
+			startActivity(new Intent(getActivity(), AboutUsActivity.class));
+			break;
+		case R.id.rl_logout:
+			logOut();
+			break;
+		default:
+			break;
+		}
+	}
+	
+	private void logOut() {
+		new SimpleDialog(getActivity(), "提示", "确定退出当前登录？", "取消", "确定", false)
+		.SetOnMySimpleDialogListener(new OnMySimpleDialogListener() {
+			@Override  
+			public void onMySure() {
+				Preferences.getInstance(getActivity()).clear();
+				refreshView() ;
+				Intent intent = new Intent(getActivity(), LoginActivity.class);
+				getActivity().startActivity(intent);
+			}
+			@Override
+			public void onMyCancle() {
+			}
+		});
+	}
+}

@@ -1,0 +1,210 @@
+[
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_btn.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\selector_btn.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\text_color_selector_white_blue.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\text_color_selector_white_blue.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\remote_seekbar_thumb.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\remote_seekbar_thumb.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rb_person_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\rb_person_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_login_btn.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\selector_login_btn.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\personal_item_bg.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\personal_item_bg.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_pressed.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\selector_pressed.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_back.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\selector_back.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\xml_modify_avatar_dialog_bg.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\xml_modify_avatar_dialog_bg.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\circle_btn_background_press.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\circle_btn_background_press.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_back_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\btn_back_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\layout_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\layout_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_ratingbar_full_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_text_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\tab_text_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_loading4.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\common_loading4.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_login.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\selector_login.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rb_home_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\rb_home_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\edit_text_light_round_border.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\edit_text_light_round_border.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rb_project_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\rb_project_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loading_dialog_bg.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\loading_dialog_bg.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\layer_icon_loading.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\layer_icon_loading.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_dialog_material_background_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_textfield_search_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\remote_seekbar_style.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\remote_seekbar_style.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_dialog.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\shape_dialog.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_radiobtn.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\selector_radiobtn.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\circle_btn_background.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\circle_btn_background.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rb_video_selector.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\rb_video_selector.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\xml_modify_avatar_dialog_btn_bg.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable\\xml_modify_avatar_dialog_btn_bg.xml"
+    }
+]

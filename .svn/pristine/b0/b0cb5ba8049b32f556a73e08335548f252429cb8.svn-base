@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_pressed" >
+
+    <TextView
+        android:id="@+id/project_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_3"
+        android:ellipsize="end"
+        android:maxEms="14"
+        android:paddingTop="3dp"
+        android:singleLine="true"
+        android:text="沙河工程"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/project_name_tv"
+        android:layout_marginLeft="@dimen/margin_3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/project_category_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxEms="14"
+            android:paddingBottom="4dp"
+            android:paddingTop="3dp"
+           	android:layout_marginRight="@dimen/margin_20"
+            android:singleLine="true"
+            android:text="房建工程"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/project_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxEms="14"
+            android:layout_marginRight="@dimen/margin_20"
+            android:paddingBottom="4dp"
+            android:paddingTop="3dp"
+            android:singleLine="true"
+            android:text="和田市"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/project_company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxEms="14"
+            android:paddingBottom="4dp"
+            android:paddingTop="3dp"
+            android:singleLine="true"
+            android:text="建设单位"
+            android:textSize="@dimen/text_size_14" />
+    </LinearLayout>
+
+</RelativeLayout>

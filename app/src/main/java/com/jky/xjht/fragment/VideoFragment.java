@@ -1,0 +1,389 @@
+package com.jky.xjht.fragment;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.hikvision.sdk.VMSNetSDK;
+import com.hikvision.sdk.consts.SDKConstant;
+import com.hikvision.sdk.net.bean.RootCtrlCenter;
+import com.hikvision.sdk.net.bean.SubResourceNodeBean;
+import com.hikvision.sdk.net.bean.SubResourceParam;
+import com.hikvision.sdk.net.business.OnVMSNetSDKBusiness;
+import com.jky.xjht.R;
+import com.jky.xjht.activity.LiveActivity;
+import com.jky.xjht.activity.LoginActivity;
+import com.jky.xjht.activity.PlayBackActivity;
+import com.jky.xjht.adapter.VideoFragmetAdapter;
+import com.jky.xjht.pulltorefresh.PullToRefreshListView;
+import com.jky.xjht.utils.AppObserverUtils;
+import com.jky.xjht.utils.Constants;
+import com.jky.xjht.utils.ObserverListener;
+import com.jky.xjht.utils.Preferences;
+import com.jky.xjht.utils.UIUtils;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * <p>
+ * 监控点资源展示Fragment
+ * </p>
+ * @author zhangliwei
+ * @version V1.0.0
+ */
+public class VideoFragment extends Fragment {
+
+	private PullToRefreshListView mPlvList;
+	public static final int CANCEL_LOADING_PROGRESS = 1;
+	public static final int LOADING_SUCCESS = 2;
+	public static final int LOADING_FAILED = 3;
+	private VideoFragmetAdapter mAdapter = null;
+	private ArrayList<String> mData = new ArrayList<>();
+	private ArrayList<Object> mSource = new ArrayList<>();
+	private Handler mHandler = null;
+	private View mNoDataView;
+	private TextView mNoDataTv;
+	private String mName;
+	private View mView;
+
+	private View mMainView;
+	private View mDialog_view;
+	private ImageView mImageView;
+	private AnimationDrawable mAnimation;
+
+
+	private class ViewHandler extends Handler {
+
+		private final WeakReference<VideoFragment> mActivity;
+
+		ViewHandler(VideoFragment activity) {
+			mActivity = new WeakReference<>(activity);
+		}
+
+		@Override
+		public void dispatchMessage(Message msg) {
+			super.dispatchMessage(msg);
+			switch (msg.what) {
+			case CANCEL_LOADING_PROGRESS:
+				dismissMainDialog();
+				break;
+			case LOADING_SUCCESS:
+				dismissMainDialog();
+				mActivity.get().mAdapter.notifyDataSetChanged();
+				break;
+			case LOADING_FAILED:
+				dismissMainDialog();
+				break;
+			}
+		}
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+
+	public void dismissMainDialog(){
+		mMainView.setVisibility(View.VISIBLE);
+		mDialog_view.setVisibility(View.GONE);
+	}
+
+	/**
+	 * 初始化数据
+	 */
+	private void initData() {
+		mHandler = new ViewHandler(this);
+		Intent intent = getActivity().getIntent();
+		if (intent.hasExtra(Constants.IntentKey.GET_SUB_NODE)) {
+			// 加载子节点列表
+			int parentNodeType = intent.getIntExtra(
+					Constants.IntentKey.PARENT_NODE_TYPE, 0);
+			int parentId = intent.getIntExtra(Constants.IntentKey.PARENT_ID, 0);
+			getSubResourceList(parentNodeType, parentId);
+		} else {
+			// 初次加载根节点数据
+			getRootControlCenter();
+		}
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		mView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_video, container, false);
+		mName = Preferences.getInstance(getActivity()).getString(Constants.KEY_USER_NAME);
+		initView(mView);
+		if(!TextUtils.isEmpty(mName)){
+			initData();
+		}
+		AppObserverUtils.registerObserver(AppObserverUtils.LOGIN_LOG_OUT, new ObserverListener() {
+
+			@Override
+			public void notifyChange(Bundle bundle, Object object) {
+					mNoDataView.setVisibility(View.VISIBLE);
+					mPlvList.setVisibility(View.GONE);
+					SpannableString spannableString = new SpannableString("您当前未登录，请您先登录");
+					spannableString.setSpan(new ForegroundColorSpan(Color.BLUE),10,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+					mNoDataTv.setText(spannableString);
+					mNoDataTv.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							startActivity(new Intent(getActivity(), LoginActivity.class));
+						}
+					});
+				}
+		});
+
+		return mView;
+	}
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+	}
+	
+	/**
+	 * 初始化视图
+	 */
+	private void initView(View view) {
+		mMainView = view.findViewById(R.id.main_view);
+		mDialog_view = view.findViewById(R.id.dialog_view);
+		mImageView = (ImageView) view.findViewById(R.id.loadingIv);
+		mMainView.setVisibility(View.GONE);
+		mDialog_view.setVisibility(View.VISIBLE);
+		// 通过ImageView对象拿到背景显示的AnimationDrawable
+		mAnimation = (AnimationDrawable) mImageView.getBackground();
+		// 为了防止在onCreate方法中只显示第一帧的解决方案之一
+		mImageView.post(new Runnable() {
+
+			@Override
+			public void run() {
+				mAnimation.start();
+			}
+		});
+		mNoDataView = view.findViewById(R.id.no_data_view);
+		mNoDataTv = (TextView) view.findViewById(R.id.no_data_tv);
+		mPlvList = (PullToRefreshListView) view.findViewById(R.id.plv_list);
+		if (!TextUtils.isEmpty(mName)) {
+			mNoDataTv.setText(getResources().getText(R.string.empty));
+			mPlvList.setVisibility(View.VISIBLE);
+		} else {
+			mNoDataView.setVisibility(View.VISIBLE);
+			mPlvList.setVisibility(View.GONE);
+			SpannableString spannableString = new SpannableString("您当前未登录，请您先登录");
+			spannableString.setSpan(new ForegroundColorSpan(Color.BLUE),10,spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+			mNoDataTv.setText(spannableString);
+			mNoDataTv.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					startActivity(new Intent(getActivity(), LoginActivity.class));
+				}
+			});
+		}
+		
+		mAdapter = new VideoFragmetAdapter(getActivity(), mData);
+		mPlvList.getRefreshableView().setAdapter(mAdapter);
+		mPlvList.getRefreshableView().setOnItemClickListener(
+				new OnItemClickListener() {
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						int nodeType;
+						final Object node = mSource.get(position);
+						if (node instanceof SubResourceNodeBean) {
+							nodeType = ((SubResourceNodeBean) node).getNodeType();
+							if (SDKConstant.NodeType.TYPE_CAMERA_OR_DOOR == nodeType) {
+								// 构造camera对象
+								final SubResourceNodeBean cameraData = (SubResourceNodeBean) node;
+								int isOnline = cameraData.getIsOnline();
+								if (isOnline == 1) {
+									// new AlertDialog.Builder(getActivity())
+									// .setSingleChoiceItems(R.array.camera_select_items,
+									// 0, new DialogInterface.OnClickListener()
+									// {
+									
+									// @Override
+									// public void onClick(
+									// DialogInterface dialog,
+									// int which) {
+									// dialog.dismiss();
+									// switch (which) {
+									// case 0:
+									// // 预览
+									// if (VMSNetSDK.getInstance()
+									// .checkLivePermission(
+									// cameraData)) {
+									// goLive(cameraData);
+									// } else {
+									// UIUtils.showToast(
+									// getActivity(),
+									// R.string.no_permission);
+									// }
+									// break;
+									// case 1:
+									// // 回放
+									// if (VMSNetSDK
+									// .getInstance()
+									// .checkPlayBackPermission(
+									// cameraData)) {
+									// goPlayBack(cameraData);
+									// } else {
+									// UIUtils.showToast(
+									// getActivity(),
+									// R.string.no_permission);
+									// }
+									// break;
+									// default:
+									// break;
+									// }
+									// }
+									// }).show();
+
+									if (VMSNetSDK.getInstance().checkLivePermission(cameraData)) {
+										goLive(cameraData);
+									} else {
+										UIUtils.showToast(getActivity(),R.string.no_permission);
+									}
+
+								} else {
+									UIUtils.showToast(getActivity(),
+											R.string.device_not_online);
+								}
+							} else {
+								// 请求此item的下级资源
+								Object obj = mSource.get(position);
+								int parentNodeType = ((SubResourceNodeBean) obj)
+										.getNodeType();
+								int pId = ((SubResourceNodeBean) obj).getId();
+								getSubResourceList(parentNodeType, pId);
+							}
+						}
+					}
+				});
+	}
+
+	/**
+	 * 回放监控点
+	 * 
+	 * @param subResourceNodeBean
+	 *            监控点资源
+	 */
+	private void goPlayBack(SubResourceNodeBean subResourceNodeBean) {
+		if (subResourceNodeBean == null) {
+			UIUtils.showToast(getActivity(), R.string.empty);
+		} else {
+			Intent it = new Intent(getActivity(), PlayBackActivity.class);
+			it.putExtra(Constants.IntentKey.CAMERA, subResourceNodeBean);
+			startActivity(it);
+		}
+	}
+
+	/**
+	 * 预览监控点
+	 * 
+	 * @param subResourceNodeBean
+	 *            监控点资源
+	 */
+	private void goLive(SubResourceNodeBean subResourceNodeBean) {
+		if (subResourceNodeBean != null) {
+			Intent it = new Intent(getActivity(), LiveActivity.class);
+			it.putExtra("tag", "1");
+			it.putExtra(Constants.IntentKey.CAMERA, subResourceNodeBean);
+			startActivity(it);
+		} else {
+			UIUtils.showToast(getActivity(), R.string.empty);
+		}
+	}
+
+	/**
+	 * 获取根控制中心
+	 */
+	public void getRootControlCenter() {
+		VMSNetSDK.getInstance().getRootCtrlCenterInfo(1,
+				SDKConstant.SysType.TYPE_VIDEO, 999, new OnVMSNetSDKBusiness() {
+					@Override
+					public void onFailure() {
+						mHandler.sendEmptyMessage(LOADING_FAILED);
+						mNoDataView.setVisibility(View.VISIBLE);
+						mPlvList.setVisibility(View.GONE);
+					}
+
+					@Override
+					public void onSuccess(Object obj) {
+						super.onSuccess(obj);
+						if (obj instanceof RootCtrlCenter) {
+							int parentNodeType = Integer
+									.parseInt(((RootCtrlCenter) obj)
+											.getNodeType());
+							int parentId = ((RootCtrlCenter) obj).getId();
+							getSubResourceList(parentNodeType, parentId);
+						}
+					}
+				});
+	}
+
+	/**
+	 * 获取父节点资源列表
+	 * 
+	 * @param parentNodeType
+	 *            父节点类型
+	 * @param pId
+	 *            父节点ID
+	 */
+	private void getSubResourceList(int parentNodeType, int pId) {
+		VMSNetSDK.getInstance().getSubResourceList(1, 999,
+				SDKConstant.SysType.TYPE_VIDEO, parentNodeType,
+				String.valueOf(pId), new OnVMSNetSDKBusiness() {
+					@Override
+					public void onFailure() {
+						super.onFailure();
+						mHandler.sendEmptyMessage(LOADING_FAILED);
+						mNoDataView.setVisibility(View.VISIBLE);
+						mPlvList.setVisibility(View.GONE);
+					}
+
+					@Override
+					public void onSuccess(Object obj) {
+						super.onSuccess(obj);
+						if (obj instanceof SubResourceParam) {
+							List<SubResourceNodeBean> list = ((SubResourceParam) obj)
+									.getNodeList();
+							mData.clear();
+							mSource.clear();
+							if (list != null && list.size() > 0) {
+								for (SubResourceNodeBean bean : list) {
+									mData.add(bean.getName());
+									mSource.add(bean);
+								}
+								mHandler.sendEmptyMessage(LOADING_SUCCESS);
+								mPlvList.setVisibility(View.VISIBLE);
+								mNoDataView.setVisibility(View.GONE);
+							} else {
+								mNoDataView.setVisibility(View.VISIBLE);
+								mPlvList.setVisibility(View.GONE);
+								mHandler.sendEmptyMessage(LOADING_FAILED);
+							}
+						}
+					}
+				});
+	}
+}

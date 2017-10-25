@@ -1,0 +1,182 @@
+package com.jky.xjht.activity;
+
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.Toast;
+
+import com.jky.xjht.R;
+import com.jky.xjht.app.XjhtApplication;
+import com.jky.xjht.fragment.HomePageFragment;
+import com.jky.xjht.fragment.MyProjectFragment;
+import com.jky.xjht.fragment.PersonalFragment;
+import com.jky.xjht.fragment.VideoFragment;
+import com.jky.xjht.utils.Constants;
+import com.jky.xjht.utils.LoginUtil;
+import com.jky.xjht.utils.Preferences;
+import com.jky.xjht.utils.SystemStatusManager;
+
+/**
+ * <p>主界面Activity</p>
+ *@author zhangliwei
+ */
+public class MainActivity extends FragmentActivity implements OnCheckedChangeListener {
+
+	private static final String RB_HOME_PAGE = "app_home_page"; // 首页
+	private static final String RB_MY_PROJECT = "app_project"; // 我的工程
+	private static final String RB_APP_VIDEO = "app_video"; // 视频监控
+	private static final String RB_PERSONAL_CENTER = "app_personal_center"; // 个人中心
+	
+	private FragmentManager mFragmentManager;
+	private String mCurrentTab;
+	public static RadioGroup mTabGroup;
+    
+	@SuppressLint("InlinedApi")
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setTranslucentStatus();
+		setContentView(R.layout.activity_main);
+		initData();
+		XjhtApplication.getInstance().addActivity(this);
+		mFragmentManager = getSupportFragmentManager();
+		mTabGroup = (RadioGroup) findViewById(R.id.tab_group);
+		mTabGroup.setOnCheckedChangeListener(this);
+		 if (getIntent().hasExtra(Constants.IntentKey.GET_ROOT_NODE)) {
+			 mTabGroup.check(R.id.rb_my_video);
+		 }else{
+			 mTabGroup.check(R.id.rb_home_page);
+		 }
+	}
+	
+	private void initData() {
+		 String name = Preferences.getInstance(MainActivity.this).getString(Constants.KEY_USER_NAME); 
+	        if(!TextUtils.isEmpty(name)){
+	        	LoginUtil.userLogin(MainActivity.this,"admin", "jky666666");
+	        }
+	}
+	/**
+	 * 设置状态栏背景状态
+	 */
+	public void setTranslucentStatus() {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			Window win = getWindow();
+			WindowManager.LayoutParams winParams = win.getAttributes();
+			final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+			winParams.flags |= bits;
+			win.setAttributes(winParams);
+		}
+		SystemStatusManager tintManager = new SystemStatusManager(this);
+		tintManager.setStatusBarTintEnabled(true);
+		// tintManager.setStatusBarTintResource(0);//状态栏无背景
+		// 使用颜色资源
+		tintManager.setStatusBarTintResource(R.color.title_color);
+
+	}
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		if (checkedId == R.id.rb_home_page) {
+			if (!RB_HOME_PAGE.equals(mCurrentTab)) {
+				FragmentTransaction ft = mFragmentManager.beginTransaction();
+				if (mCurrentTab != null) {
+					Fragment lastfragment = mFragmentManager.findFragmentByTag(mCurrentTab);
+					if (lastfragment != null) {
+						ft.hide(lastfragment);
+					}
+				}
+
+				Fragment fragment = mFragmentManager.findFragmentByTag(RB_HOME_PAGE);
+				if (fragment == null) {
+					ft.add(R.id.tabcontent, new HomePageFragment(), RB_HOME_PAGE);
+				} else {
+					ft.show(fragment);
+				}
+				ft.commit();
+				mFragmentManager.executePendingTransactions();
+				mCurrentTab = RB_HOME_PAGE;
+			}
+		} else if (checkedId == R.id.rb_my_project) {
+			if (!RB_MY_PROJECT.equals(mCurrentTab)) {
+				FragmentTransaction ft = mFragmentManager.beginTransaction();
+				if (mCurrentTab != null) {
+					Fragment lastfragment = mFragmentManager.findFragmentByTag(mCurrentTab);
+					if (lastfragment != null) {
+						ft.hide(lastfragment);
+					}
+				}
+
+				Fragment fragment = mFragmentManager.findFragmentByTag(RB_MY_PROJECT);
+				if (fragment == null) {
+					ft.add(R.id.tabcontent, new MyProjectFragment(), RB_MY_PROJECT);
+				} else {
+					ft.show(fragment);
+				}
+				ft.commit();
+				mFragmentManager.executePendingTransactions();
+				mCurrentTab = RB_MY_PROJECT;
+			}
+		} else if (checkedId == R.id.rb_personal_center) {
+			if (!RB_PERSONAL_CENTER.equals(mCurrentTab)) {
+				FragmentTransaction ft = mFragmentManager.beginTransaction();
+				if (mCurrentTab != null) {
+					Fragment lastfragment = mFragmentManager.findFragmentByTag(mCurrentTab);
+					if (lastfragment != null) {
+						ft.hide(lastfragment);
+					}
+				}
+
+				Fragment fragment = mFragmentManager.findFragmentByTag(RB_PERSONAL_CENTER);
+				if (fragment == null) {
+					ft.add(R.id.tabcontent, new PersonalFragment(), RB_PERSONAL_CENTER);
+				} else {
+					ft.show(fragment);
+				}
+				ft.commit();
+				mFragmentManager.executePendingTransactions();
+				mCurrentTab = RB_PERSONAL_CENTER;
+			}
+		} else if (checkedId == R.id.rb_my_video) {
+			if (!RB_APP_VIDEO.equals(mCurrentTab)) {
+				FragmentTransaction ft = mFragmentManager.beginTransaction();
+				if (mCurrentTab != null) {
+					Fragment lastfragment = mFragmentManager.findFragmentByTag(mCurrentTab);
+					if (lastfragment != null) {
+						ft.hide(lastfragment);
+					}
+				}
+
+				Fragment fragment = mFragmentManager.findFragmentByTag(RB_APP_VIDEO);
+				if (fragment == null) {
+					ft.add(R.id.tabcontent, new VideoFragment(), RB_APP_VIDEO);
+				} else {
+					ft.show(fragment);
+				}
+				ft.commit();
+				mFragmentManager.executePendingTransactions();
+				mCurrentTab = RB_APP_VIDEO;
+			}
+		}
+	}
+
+	private long exitTime = 0;
+
+	@Override
+	public void onBackPressed() {
+		if ((System.currentTimeMillis() - exitTime) > 1000) {
+			Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+			exitTime = System.currentTimeMillis();
+		} else {
+			finish();
+			System.exit(0);
+		}
+	}
+}

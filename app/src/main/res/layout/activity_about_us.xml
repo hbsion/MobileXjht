@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E6E6E6" >
+
+        <TextView
+            android:id="@+id/service_tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/serviec_tel"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/sel_tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/service_tel"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/sell_tel"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/sel_tel"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/address"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/address"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/zlys_company_name"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/company_name"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/company_logo" />
+
+        <ImageView
+            android:id="@+id/iv_two_dem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ewm_zlys" />
+
+        <TextView
+            android:id="@+id/tv_two_dem_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_version"
+            android:layout_centerHorizontal="true"
+            android:text="@string/zlys_ewm"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_two_dem"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="当前版本 V3.1.0"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:id="@+id/sevice_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_two_dem_tip"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            android:background="@drawable/personal_item_bg"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:text="@string/service"
+                android:textSize="14sp" />
+              <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/arrow_right"
+                android:layout_marginRight="12dp"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+package com.jky.commonlib.interfaces;
+
+import android.os.Bundle;
+
+public interface ObserverListener {
+	public abstract void notifyChange(Bundle bundle,Object object);
+}

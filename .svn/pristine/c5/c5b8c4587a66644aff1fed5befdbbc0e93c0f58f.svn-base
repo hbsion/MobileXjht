@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/title_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_title_height"
+        android:background="@color/title_color"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="工程列表"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.jky.xjht.pulltorefresh.PullToRefreshListView
+            android:id="@+id/plv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ebe9e9"
+            android:divider="#ebe9e9"
+            android:dividerHeight="@dimen/height_line_one"
+            android:scrollbars="none" >
+        </com.jky.xjht.pulltorefresh.PullToRefreshListView>
+
+        <include
+            android:id="@+id/no_data_view"
+            layout="@layout/include_no_data"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

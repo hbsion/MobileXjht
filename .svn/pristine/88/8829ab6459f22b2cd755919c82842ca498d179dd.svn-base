@@ -1,0 +1,146 @@
+package com.jky.commonlib.fragment;
+
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import android.graphics.Bitmap;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.jky.commonlib.R;
+import com.jky.commonlib.dialog.LoadingDialog;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
+
+public class BaseFragment extends Fragment {
+	private static final int WHAT_SHOW_PROGRESS = 0000;
+	private static final int WHAT_CLOSE_PROGRESS = 0001;
+	protected LoadingDialog loadingDialog;
+	public ImageLoader imageLoader = ImageLoader.getInstance();
+	public DisplayImageOptions optionsDraw;
+	public ImageLoadingListener animateFirstListener;
+	private Handler handler = new Handler() {
+		public void handleMessage(Message msg) {
+			try {
+				if (msg.what == WHAT_SHOW_PROGRESS) {
+					if (!loadingDialog.isShowing()) {
+						loadingDialog.show();
+					}
+				} else if (msg.what == WHAT_CLOSE_PROGRESS) {
+					if (loadingDialog != null && loadingDialog.isShowing()) {
+						loadingDialog.hide();
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	};
+
+	private Toast toast;
+
+	public void showShortToast(String text) {
+		if (!TextUtils.isEmpty(text)) {
+			if (toast != null) {
+				toast.cancel();
+				toast = null;
+			}
+			toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
+			toast.show();
+		}
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if (loadingDialog == null) {
+			loadingDialog = new LoadingDialog(getActivity());
+		}
+		if (VERSION.SDK_INT >= VERSION_CODES.KITKAT) {
+			// 透明状态栏
+			getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+		} else {
+			getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // 全屏
+		}
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+	}
+
+	/**
+	 * @return the handler
+	 */
+	public Handler getHandler() {
+		return handler;
+	}
+
+	public void showConnectionProgress() {
+		getHandler().sendEmptyMessage(WHAT_SHOW_PROGRESS);
+	}
+
+	public void closeConnectionProgress() {
+		getHandler().sendEmptyMessage(WHAT_CLOSE_PROGRESS);
+	}
+
+	/**
+	 * 实例化图片加载方法
+	 * 
+	 * @see 调用方法，imageLoader.displayImage(infos.data.get(position).background,
+	 *      tx, optionsForcircle, animateFirstListener);
+	 */
+	public void initImageOptions() {
+		if (!imageLoader.isInited()) {
+			imageLoader.init(ImageLoaderConfiguration.createDefault(getActivity()));
+		}
+
+		optionsDraw = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.photo_icon).showImageForEmptyUri(R.drawable.photo_icon).showImageOnFail(R.drawable.photo_icon)
+		// .displayer(new SimpleDrawableDisplayer())
+				.displayer(new RoundedBitmapDisplayer(0))
+				// .displayer(new SimpleBitmapDisplayer())
+				// .setDisplayImageType(true).cacheInMemory(true)
+				.cacheOnDisk(true).considerExifParams(true).build();
+		animateFirstListener = new AnimateFirstDisplayListener();
+	}
+
+	private static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
+
+		static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
+
+		@Override
+		public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+			if (loadedImage != null) {
+				ImageView imageView = (ImageView) view;
+				// imageView
+				// .setBackgroundDrawable(new BitmapDrawable(loadedImage));
+				boolean firstDisplay = !displayedImages.contains(imageUri);
+				if (firstDisplay) {
+					FadeInBitmapDisplayer.animate(imageView, 500);
+					displayedImages.add(imageUri);
+				}
+
+			}
+		}
+	}
+}

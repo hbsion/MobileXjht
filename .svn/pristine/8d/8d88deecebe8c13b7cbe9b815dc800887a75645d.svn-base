@@ -1,0 +1,297 @@
+package com.jky.xjht.activity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.jky.xjht.R;
+import com.jky.xjht.bean.ProjectDetailInfo;
+import com.jky.xjht.dialog.SelectMapDialog;
+import com.jky.xjht.net.JsonParse;
+import com.jky.xjht.net.MobileEduService;
+import com.jky.xjht.net.RequestCallBackModel;
+import com.jky.xjht.net.RequestListener;
+import com.jky.xjht.utils.SingleToast;
+import com.jky.xjht.volley.VolleyError;
+
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * <p>工程详情Activity </P>
+ * @author zlw
+ * */
+public class ProjectDetailActivity extends BaseActivity {
+	
+	private String mProjectId;
+	
+	private TextView project_name_tv;
+	private TextView project_category_tv;
+	private TextView project_location_tv;
+	private TextView contract_duration_tv;
+	private TextView contract_amount_tv;
+	private TextView contract_start_date_tv;
+	private TextView contract_end_date_tv;
+	private TextView project_scale_tv;
+	private TextView project_build_tv;
+	private TextView project_build_company_tv;
+	private TextView project_company_manger_tv;
+	private TextView contact_number_tv;
+	private TextView project_charge_tv;
+	
+	private SelectMapDialog mSecectMapDialog;
+	
+	private double mLongitude;//经度
+	private double mLatitude;//纬度
+	private String mXpoint;
+	private String mYpoint;
+	private String mAreaName;
+	
+	//监控点id 和编码
+	private String CameraList;
+//	private String mCarmeId;
+//	private String mCarmeCode;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_project_detail);
+		setTitle("工程详情");
+		mProjectId = getIntent().getStringExtra("projectId");
+		initView();
+		getData();
+	}
+
+	private void initView() {
+		mRightBtn.setVisibility(View.VISIBLE);
+		project_name_tv = (TextView) findViewById(R.id.project_name_tv);
+		project_category_tv = (TextView) findViewById(R.id.project_category_tv);
+		project_location_tv = (TextView) findViewById(R.id.project_location_tv);
+		contract_duration_tv = (TextView) findViewById(R.id.contract_duration_tv);
+		contract_amount_tv = (TextView) findViewById(R.id.contract_amount_tv);
+		contract_start_date_tv = (TextView) findViewById(R.id.contract_start_date_tv);
+		contract_end_date_tv = (TextView) findViewById(R.id.contract_end_date_tv);
+		project_scale_tv = (TextView) findViewById(R.id.project_scale_tv);
+		project_build_tv = (TextView) findViewById(R.id.project_build_tv);
+		project_build_company_tv = (TextView) findViewById(R.id.project_build_company_tv);
+		project_company_manger_tv = (TextView) findViewById(R.id.project_company_manger_tv);
+		contact_number_tv = (TextView) findViewById(R.id.contact_number_tv);
+		project_charge_tv = (TextView) findViewById(R.id.project_charge_tv);
+		findViewById(R.id.project_view_video_tv).setOnClickListener(this);
+		
+	}
+
+
+	public void getData() {
+		showDialog();
+		MobileEduService.getInstance(ProjectDetailActivity.this).getProjectDetail(mProjectId,"getProjectDetail", listener);
+	}
+	
+	private RequestListener listener = new RequestCallBackModel() {
+
+		@Override
+		public void onSuccess(String result, String tag) {
+			super.onSuccess(result, tag);
+			dismissDialog();
+				if ("getProjectDetail".equals(tag)) {
+					if (code == 0) {
+						System.out.println("zlw===getProjectDetail====data==="+data);
+						List<ProjectDetailInfo> projectDetailInfoList = JsonParse.toProjectDetailList(data);
+						if(projectDetailInfoList!=null && projectDetailInfoList.size() > 0){
+							ProjectDetailInfo projectDetailInfo = projectDetailInfoList.get(0);
+							setView(projectDetailInfo);
+						}
+					} else {
+						SingleToast.show(ProjectDetailActivity.this, "数据请求失败");
+					}
+				} 
+		}
+		@Override
+		public void onFailed(VolleyError error) {
+			dismissDialog();
+			super.onFailed(error);
+		}
+	};
+	
+	private void setView(ProjectDetailInfo projectDetailInfo) {
+		project_name_tv.setText(projectDetailInfo.getProjectName());
+		project_category_tv.setText(projectDetailInfo.getTypeName());
+		project_location_tv.setText(projectDetailInfo.getAreaName());
+		contract_duration_tv.setText(projectDetailInfo.getTotalPeriod()+"");
+		contract_amount_tv.setText(projectDetailInfo.getContractPrice()+"");
+		contract_start_date_tv.setText(projectDetailInfo.getBeginDate());
+		contract_end_date_tv.setText(projectDetailInfo.getEndDate());
+		project_scale_tv.setText(projectDetailInfo.getProjectextent()+"");
+		project_build_tv.setText(projectDetailInfo.getProjectAddress());
+		project_build_company_tv.setText(projectDetailInfo.getJSDWName());
+		project_company_manger_tv.setText(projectDetailInfo.getQYFZRXM());
+		contact_number_tv.setText(projectDetailInfo.getQYFZRGDDH());
+		project_charge_tv.setText(projectDetailInfo.getJSXMName());
+		mXpoint = projectDetailInfo.getXPoint();
+		mYpoint = projectDetailInfo.getYPoint();
+		if(!TextUtils.isEmpty(mXpoint)&& !TextUtils.isEmpty(mYpoint)){
+			mLongitude = Double.parseDouble(mXpoint);
+			mLatitude = Double.parseDouble(mYpoint);
+		}
+		mAreaName = projectDetailInfo.getAreaName();
+		CameraList = projectDetailInfo.getCameraList();
+//		if(!TextUtils.isEmpty(CameraList)){
+//			if(CameraList.contains(",")){
+//				mCarmeId = CameraList.split(",")[0].split("#")[0];
+//				mCarmeCode = CameraList.split(",")[0].split("#")[1];
+//			}else{
+//				mCarmeId = CameraList.split("#")[0];
+//				mCarmeCode = CameraList.split("#")[1];
+//			}
+//		}
+	}
+	
+	private void showSelectMapDialog() {
+		mSecectMapDialog = new SelectMapDialog(ProjectDetailActivity.this,mOnClickListener);
+		mSecectMapDialog.show();
+	}
+	
+
+	OnClickListener mOnClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.select_baidu_map:
+			
+					if (isAvilible(context, "com.baidu.BaiduMap")) {// 传入指定应用包名
+
+						try {
+							Intent intent = Intent.getIntent("intent://map/direction?destination=latlng:"
+											+ mLatitude + ","
+											+ mLongitude + "|name:"+mAreaName + // 终点
+											"&mode=driving&" + // 导航路线方式
+											"region=北京" + //
+											"&src=新疆和田#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end");
+							context.startActivity(intent); // 启动调用
+						} catch (URISyntaxException e) {
+							Log.e("intent", e.getMessage());
+						}
+					} else {// 未安装
+						Toast.makeText(context, "您尚未安装百度地图", Toast.LENGTH_LONG)
+								.show();
+						Uri uri = Uri
+								.parse("market://details?id=com.baidu.BaiduMap");
+						Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+						context.startActivity(intent);
+					}
+					mSecectMapDialog.dismiss();
+				
+				break;
+			case R.id.select_gaode_map:
+				
+					if (isAvilible(context, "com.autonavi.minimap")) {
+						try {
+							Intent intent = Intent.getIntent("androidamap://navi?sourceApplication=新疆和田&poiname="+mAreaName+"&lat="
+											+ mLatitude
+											+ "&lon="
+											+ mLongitude + "&dev=0");
+							context.startActivity(intent);
+						} catch (URISyntaxException e) {
+							e.printStackTrace();
+						}
+					} else {
+						Toast.makeText(context, "您尚未安装高德地图", Toast.LENGTH_LONG)
+								.show();
+						Uri uri = Uri
+								.parse("market://details?id=com.autonavi.minimap");
+						Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+						context.startActivity(intent);
+					}
+					mSecectMapDialog.dismiss();
+				break;
+			case R.id.select_guge_map:
+					if (isAvilible(context, "com.google.android.apps.maps")) {
+						Uri gmmIntentUri = Uri.parse("google.navigation:q="
+								+ mLatitude + "," + mLongitude
+								+ ", + Sydney +Australia");
+						Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+								gmmIntentUri);
+						mapIntent.setPackage("com.google.android.apps.maps");
+						context.startActivity(mapIntent);
+					} else {
+						Toast.makeText(context, "您尚未安装谷歌地图", Toast.LENGTH_LONG)
+								.show();
+						Uri uri = Uri
+								.parse("market://details?id=com.google.android.apps.maps");
+						Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+						context.startActivity(intent);
+					}
+					mSecectMapDialog.dismiss();
+				break;
+			case R.id.select_map_cancle:
+				mSecectMapDialog.dismiss();
+				break;
+			}
+		}
+	};
+
+	/*
+	 * 检查手机上是否安装了指定的软件
+	 * 
+	 * @param context
+	 * 
+	 * @param packageName：应用包名
+	 * 
+	 * @return
+	 */
+	public static boolean isAvilible(Context context, String packageName) {
+		// 获取packagemanager
+		final PackageManager packageManager = context.getPackageManager();
+		// 获取所有已安装程序的包信息
+		List<PackageInfo> packageInfos = packageManager.getInstalledPackages(0);
+		// 用于存储所有已安装程序的包名
+		List<String> packageNames = new ArrayList<String>();
+		// 从pinfo中将包名字逐一取出，压入pName list中
+		if (packageInfos != null) {
+			for (int i = 0; i < packageInfos.size(); i++) {
+				String packName = packageInfos.get(i).packageName;
+				packageNames.add(packName);
+			}
+		}
+		// 判断packageNames中是否有目标程序的包名，有TRUE，没有FALSE
+		return packageNames.contains(packageName);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+
+		case R.id.right_btn:// 导航
+			if(!TextUtils.isEmpty(mXpoint)&& !TextUtils.isEmpty(mYpoint)){
+				showSelectMapDialog();
+			}else{
+				SingleToast.show(ProjectDetailActivity.this, "当前工程无坐标数据");
+			}
+			break;
+		case R.id.project_view_video_tv://查看工程视频
+			if(TextUtils.isEmpty(CameraList)){
+				SingleToast.show(ProjectDetailActivity.this, "未获取到相应的视频监控点");
+				return;
+			}
+			Intent intent = new Intent(ProjectDetailActivity.this,ResourceListActivity.class);
+			intent.putExtra("tag", "2");
+			intent.putExtra("cameraListStr", CameraList);
+			startActivity(intent);
+			break;
+		default:
+			break;
+		}
+		super.onClick(v);
+	}
+
+}

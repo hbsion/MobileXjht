@@ -1,0 +1,143 @@
+package com.jky.xjht.activity;
+
+/**
+ * <p>基类Activity</p>
+ *@author zhangliwei
+ */
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.jky.xjht.R;
+import com.jky.xjht.utils.SystemStatusManager;
+
+public class BaseActivity extends Activity implements OnClickListener {
+	private static final int WHAT_SHOW_PROGRESS = 0000;
+	private static final int WHAT_CLOSE_PROGRESS = 0001;
+
+	protected ImageView mIvBack; // 返回
+	protected TextView mTitleCenterTv; // 标题
+	protected ImageView mIvClassify; // 分类
+	protected Button btn_recheck;// 今日复查按钮
+	protected View mTitleBarView;
+	protected Context context;
+	protected Toast toast;
+	public ImageView mRightBtn;
+
+	public void showShortToast(String text) {
+		if (!TextUtils.isEmpty(text)) {
+			
+			if (toast == null) {
+				toast = Toast.makeText(BaseActivity.this, text,Toast.LENGTH_SHORT);
+			} else {
+				toast.setText(text);
+			}
+			toast.show();
+		}
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		context = this;
+	}
+
+	/**
+	 * 设置状态栏背景状态
+	 */
+	public void setTranslucentStatus() {
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
+		{
+			Window win = getWindow();
+			WindowManager.LayoutParams winParams = win.getAttributes();
+			final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+			winParams.flags |= bits;
+			win.setAttributes(winParams);
+		}
+		SystemStatusManager tintManager = new SystemStatusManager(this); 
+		tintManager.setStatusBarTintEnabled(true);
+		tintManager.setStatusBarTintResource(0);//状态栏无背景
+		// 使用颜色资源
+		tintManager.setStatusBarTintResource(R.color.title_color);
+	}
+	private void setupView() {
+		mIvBack = (ImageView) findViewById(R.id.iv_common_back);
+		mTitleCenterTv = (TextView) findViewById(R.id.tv_common_title_center);
+		mRightBtn = (ImageView) findViewById(R.id.right_btn);
+	}
+	
+	protected void onResume() {
+		super.onResume();
+	}
+	
+	protected void onPause() {
+		super.onPause();
+	}
+	/**
+	 * 隐藏标题栏
+	 */
+	public void hideHeadBar() {
+		if (mTitleBarView != null)
+			mTitleBarView.setVisibility(View.GONE);
+	}
+
+	@Override
+	public void setContentView(int layoutResID) {
+		super.setContentView(R.layout.common_base);
+		LinearLayout rootView = (LinearLayout) findViewById(R.id.linearlayout_base);
+		getLayoutInflater().inflate(layoutResID, rootView);
+		setupView();
+		addListener();
+	}
+
+	private void addListener() {
+		mIvBack.setOnClickListener(this);
+		mTitleCenterTv.setOnClickListener(this);
+		mRightBtn.setOnClickListener(this);
+	}
+
+	@Override
+	public void setTitle(CharSequence title) {
+		mTitleCenterTv.setText(title);
+	}
+	
+	/**
+	 * 标题居中显示
+	 * @param title
+	 */
+	public void setTitleCenter(CharSequence title) {
+		mIvBack.setVisibility(View.GONE);
+		mTitleCenterTv.setText(title);
+	}
+
+
+	/**
+	 * 默认右侧的图标是不显示的，设置了值以后就显示了
+	 * @param resId
+	 */
+	public void setClassImg(int resId) {
+		mIvClassify.setImageResource(resId);
+		mIvClassify.setVisibility(View.VISIBLE);
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (R.id.iv_common_back == v.getId()) {
+			finish();
+		}else if (R.id.tv_common_title_center == v.getId()) {
+			finish();
+		}
+	}
+}

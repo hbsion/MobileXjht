@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\splash.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\splash.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_nor.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_nor.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_project_selected.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_project_selected.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\radio_custom_selected.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\radio_custom_selected.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\playbackslider.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\playbackslider.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\icon_common_back_press.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\icon_common_back_press.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\common_title_back.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\common_title_back.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\shadows.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\shadows.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_project.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_project.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\radio_custom_unselected.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\radio_custom_unselected.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\company_logo.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\company_logo.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_person_selected.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_person_selected.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_pulltorefresh_arrow.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\ic_pulltorefresh_arrow.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\icon_map_jg.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\icon_map_jg.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\next_.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\next_.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\avatar_default.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\avatar_default.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\pre_.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\pre_.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_person.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_person.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\scrollview_header.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\scrollview_header.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\user_exit.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\user_exit.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\icon_navigation.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\icon_navigation.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\playbackslider_sel.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\playbackslider_sel.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\user_version_update.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\user_version_update.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_sel.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_sel.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\personal_right_row.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\personal_right_row.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_video_selected.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_video_selected.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\user_about_us.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\user_about_us.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\home_video.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\home_video.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\no_data_img.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\no_data_img.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ewm_zlys.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\ewm_zlys.png"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\arrow_right.png",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\drawable-xhdpi\\arrow_right.png"
+    }
+]

@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/tabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2" >
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_line_three"
+        android:background="@drawable/shadows"
+        android:visibility="visible" />
+
+    <RadioGroup
+        android:id="@+id/tab_group"
+        style="@style/main_activity_tab_group_style" >
+
+        <RadioButton
+            android:id="@+id/rb_home_page"
+            style="@style/main_activity_tab_radio_button_style"
+            android:drawableTop="@drawable/rb_home_selector"
+            android:text="@string/main_home"/>
+
+        <RadioButton
+            android:id="@+id/rb_my_project"
+            style="@style/main_activity_tab_radio_button_style"
+            android:drawableTop="@drawable/rb_project_selector"
+            android:text="@string/main_project"/>
+
+        <RadioButton
+            android:id="@+id/rb_my_video"
+            style="@style/main_activity_tab_radio_button_style"
+            android:drawableTop="@drawable/rb_video_selector"
+            android:text="@string/main_video"/>
+
+        <RadioButton
+            android:id="@+id/rb_personal_center"
+            style="@style/main_activity_tab_radio_button_style"
+            android:drawableTop="@drawable/rb_person_selector"
+            android:text="@string/main_person"/>
+    </RadioGroup>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_exit.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\anim\\dialog_exit.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\loading_animation.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\anim\\loading_animation.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_enter_anim.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\anim\\dialog_enter_anim.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_enter.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\anim\\dialog_enter.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\dialog_exit_anim.xml",
+        "source": "D:\\workspace_as\\MobileXjht\\app\\src\\main\\res\\anim\\dialog_exit_anim.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    }
+]

@@ -1,0 +1,187 @@
+package com.jky.xjht.fragment;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.InfoWindow;
+import com.baidu.mapapi.map.InfoWindow.OnInfoWindowClickListener;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.jky.xjht.R;
+import com.jky.xjht.activity.ProjectDetailActivity;
+import com.jky.xjht.bean.ProjectPointInfo;
+import com.jky.xjht.net.JsonParse;
+import com.jky.xjht.net.MobileEduService;
+import com.jky.xjht.net.RequestCallBackModel;
+import com.jky.xjht.net.RequestListener;
+import com.jky.xjht.utils.SingleToast;
+import com.jky.xjht.volley.VolleyError;
+
+import java.util.ArrayList;
+
+/**
+ * <p> 首页地图展示界面Fragment</p>
+ * @author zlw
+ * */
+
+public class HomePageFragment extends BaseFragment {
+
+	private MapView mMapView;
+	private BaiduMap mBaiduMap;
+	private InfoWindow mInfoWindow;
+	private ArrayList<ProjectPointInfo> lists = new ArrayList<ProjectPointInfo>();
+	private LatLng mPpoint;
+	@Override 
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater,
+			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		SDKInitializer.initialize(getActivity().getApplicationContext());
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_home, container, false);
+		initView(view);
+		getData();
+		return view;
+	}
+	
+	
+	public void getData(){
+		MobileEduService.getInstance(getActivity()).getProjectPointList("getProjectPointList", listener);
+	}
+	private RequestListener listener = new RequestCallBackModel() {
+
+		@Override
+		public void onSuccess(String result, String tag) {
+			super.onSuccess(result, tag);
+			
+				if ("getProjectPointList".equals(tag)) {
+					if (code == 0) {
+						lists = (ArrayList<ProjectPointInfo>) JsonParse.toList(data);
+						System.out.println("zlw=====data=="+data);
+						addMarkView();
+					} else {
+						SingleToast.show(getActivity(), "数据请求失败");
+					}
+				} 
+		}
+	
+		@Override
+		public void onFailed(VolleyError error) {
+			super.onFailed(error);
+		}
+	};
+	private void addMarkView() {
+		
+		for (int i = 0; i < lists.size(); i++) {
+			String  id  = lists.get(i).getID();
+			String xPoint = lists.get(i).getXPoint();
+			String yPoint = lists.get(i).getYPoint();
+			
+			if(!TextUtils.isEmpty(xPoint)&& !TextUtils.isEmpty(yPoint)){
+				String title = lists.get(i).getProjectName();
+				String typeName = lists.get(i).getTypeName();
+				String ProjectAddress = lists.get(i).getProjectAddress();
+				//定义Maker坐标点  
+				LatLng point = new LatLng(Double.parseDouble(yPoint),Double.parseDouble(xPoint)); 
+				mPpoint = point;
+				//构建Marker图标  
+				BitmapDescriptor bitmap = BitmapDescriptorFactory .fromResource(R.drawable.icon_map_jg);  
+				Bundle bundle = new Bundle();
+				bundle.putString("id", id);
+				bundle.putString("title", title);
+				bundle.putString("project_name", title);
+				bundle.putString("project_location", ProjectAddress);
+				bundle.putString("project_category",typeName);
+				//构建MarkerOption，用于在地图上添加Marker  
+				MarkerOptions option = new MarkerOptions()  
+				    .position(point)  
+				    .extraInfo(bundle)
+				    .icon(bitmap);  
+				//在地图上添加Marker，并显示  
+				Marker mark = (Marker)  mMapView.getMap().addOverlay(option);
+			}
+		        //定义地图状态
+		        MapStatus mMapStatus = new MapStatus.Builder()
+		        .target(mPpoint)
+		        .zoom(11)
+		        .build();
+		        //定义MapStatusUpdate对象，以便描述地图状态将要发生的变化
+		        
+		        MapStatusUpdate mMapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mMapStatus);
+		        //改变地图状态
+		        mBaiduMap.setMapStatus(mMapStatusUpdate);
+			}
+	}
+	
+	private void initView(View view) {
+		mMapView  = (MapView)  view.findViewById(R.id.bmapView);
+		mBaiduMap = mMapView.getMap();
+		mBaiduMap.setOnMarkerClickListener(new OnMarkerClickListener() {
+            public boolean onMarkerClick(final Marker marker) {
+            	View mUserInfoView = LayoutInflater.from(getActivity()).inflate(R.layout.pop_map_view, null);
+            	TextView project_name_tv = (TextView)mUserInfoView.findViewById(R.id.project_name_tv);
+            	TextView project_location_tv = (TextView)mUserInfoView.findViewById(R.id.project_location_tv);
+            	TextView project_category_tv = (TextView)mUserInfoView.findViewById(R.id.project_category_tv);
+            	String project_name=  marker.getExtraInfo().getString("project_name");
+            	String project_location=  marker.getExtraInfo().getString("project_location");
+            	String project_category=  marker.getExtraInfo().getString("project_category");
+            	project_name_tv.setText(project_name);
+            	project_location_tv.setText(project_location);
+            	project_category_tv.setText(project_category);
+            	
+                OnInfoWindowClickListener listener = null;
+                    listener = new OnInfoWindowClickListener() {
+                        public void onInfoWindowClick() {
+                        	String projectId=  marker.getExtraInfo().getString("id");
+                        	Intent intent = new Intent(getActivity(),ProjectDetailActivity.class);
+                        	intent.putExtra("projectId", projectId);
+    						startActivity(intent);
+                        }
+                    };
+                    LatLng ll = marker.getPosition();
+                    mInfoWindow = new InfoWindow(BitmapDescriptorFactory.fromView(mUserInfoView), ll, -47, listener);
+                    mBaiduMap.showInfoWindow(mInfoWindow);
+                return true;
+            }
+        });
+	}
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		// 在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+		mMapView.onDestroy();
+	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		// 在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理
+		mMapView.onResume();
+	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		// 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
+		mMapView.onPause();
+	}
+}

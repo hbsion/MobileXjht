@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "D:\\workspace_as\\MobileXjht\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\lenovo\\.android\\build-cache\\e27307f312ce43e3d3f030f6b88da868c4ea8505\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    }
+]

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/dialog_tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_10"
+        android:text="温馨提示"
+        android:textColor="@color/common_blue"
+        android:textSize="@dimen/text_size_18" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_line_half_of_one"
+        android:background="@color/common_blue" />
+
+    <TextView
+        android:id="@+id/dialog_tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:padding="@dimen/padding_10"
+        android:textSize="@dimen/text_size_15"
+        android:text="这里填写提示内容" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_line_half_of_one"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/dialog_btn_cancle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_back"
+            android:text="取消"
+            android:textColor="@color/black_text_color"
+            android:textSize="@dimen/text_size_14" />
+
+        <Button
+            android:id="@+id/dialog_btn_sure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_login"
+            android:text="确定"
+            android:textColor="@drawable/text_color_selector_white_blue"
+            android:textSize="@dimen/text_size_14" />
+    </LinearLayout>
+
+</LinearLayout>
